@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Tasks SYSTEM "Tasks-5.1.dtd">
 <!-- eric6 tasks file for project bookstore -->
-<!-- Saved: 2015-10-16, 20:32:27 -->
+<!-- Saved: 2015-10-16, 20:35:22 -->
 <Tasks version="5.1">
   <ProjectScanFilter></ProjectScanFilter>
   <Task priority="1" completed="False" type="1">
