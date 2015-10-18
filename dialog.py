@@ -29,7 +29,7 @@ class DialogControl(QDialog, Ui_Dialog):
         
         
         
-    
+
         mainframui.show()
         ui.close()
         
