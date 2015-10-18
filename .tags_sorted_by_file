@@ -1,0 +1,38 @@
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+Dialog	Ui_dialog.py	/^    Dialog = QtGui.QDialog()$/;"	v
+Ui_Dialog	Ui_dialog.py	/^class Ui_Dialog(object):$/;"	c
+_encoding	Ui_dialog.py	/^    _encoding = QtGui.QApplication.UnicodeUTF8$/;"	v
+_fromUtf8	Ui_dialog.py	/^    _fromUtf8 = QtCore.QString.fromUtf8$/;"	v
+_fromUtf8	Ui_dialog.py	/^    def _fromUtf8(s):$/;"	f
+_translate	Ui_dialog.py	/^    def _translate(context, text, disambig):$/;"	f
+app	Ui_dialog.py	/^    app = QtGui.QApplication(sys.argv)$/;"	v
+retranslateUi	Ui_dialog.py	/^    def retranslateUi(self, Dialog):$/;"	m	class:Ui_Dialog
+setupUi	Ui_dialog.py	/^    def setupUi(self, Dialog):$/;"	m	class:Ui_Dialog
+ui	Ui_dialog.py	/^    ui = Ui_Dialog()$/;"	v
+Ui_mainfram	Ui_mainfram.py	/^class Ui_mainfram(object):$/;"	c
+_encoding	Ui_mainfram.py	/^    _encoding = QtGui.QApplication.UnicodeUTF8$/;"	v
+_fromUtf8	Ui_mainfram.py	/^    _fromUtf8 = QtCore.QString.fromUtf8$/;"	v
+_fromUtf8	Ui_mainfram.py	/^    def _fromUtf8(s):$/;"	f
+_translate	Ui_mainfram.py	/^    def _translate(context, text, disambig):$/;"	f
+app	Ui_mainfram.py	/^    app = QtGui.QApplication(sys.argv)$/;"	v
+mainfram	Ui_mainfram.py	/^    mainfram = QtGui.QMainWindow()$/;"	v
+retranslateUi	Ui_mainfram.py	/^    def retranslateUi(self, mainfram):$/;"	m	class:Ui_mainfram
+setupUi	Ui_mainfram.py	/^    def setupUi(self, mainfram):$/;"	m	class:Ui_mainfram
+ui	Ui_mainfram.py	/^    ui = Ui_mainfram()$/;"	v
+DialogControl	dialog.py	/^class DialogControl(QDialog, Ui_Dialog):$/;"	c
+__init__	dialog.py	/^    def __init__(self, parent=None):$/;"	m	class:DialogControl
+app	dialog.py	/^    app = QtGui.QApplication(sys.argv)$/;"	v
+mainframui	dialog.py	/^    mainframui=mainframcontrol()$/;"	v
+on_login_clicked	dialog.py	/^    def on_login_clicked(self):$/;"	m	class:DialogControl
+on_reset_clicked	dialog.py	/^    def on_reset_clicked(self):$/;"	m	class:DialogControl
+ui	dialog.py	/^    ui = DialogControl()$/;"	v
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+__init__	mainfram.py	/^    def __init__(self, parent=None):$/;"	m	class:mainframcontrol
+app	mainfram.py	/^    app = QtGui.QApplication(sys.argv)$/;"	v
+mainframcontrol	mainfram.py	/^class mainframcontrol(QMainWindow, Ui_mainfram):$/;"	c
+on_search_clicked	mainfram.py	/^    def on_search_clicked(self):$/;"	m	class:mainframcontrol
+ui	mainfram.py	/^    ui = mainframcontrol()$/;"	v

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'C:\Users\shihui\ericproject\bookstore\dialog.ui'
+# Form implementation generated from reading ui file '/home/dell/github/bookstore/dialog.ui'
 #
 # Created by: PyQt4 UI code generator 4.11.4
 #
@@ -44,6 +44,7 @@ class Ui_Dialog(object):
         self.username.setObjectName(_fromUtf8("username"))
         self.password = QtGui.QLineEdit(Dialog)
         self.password.setGeometry(QtCore.QRect(200, 170, 113, 20))
+        self.password.setEchoMode(QtGui.QLineEdit.Password)
         self.password.setObjectName(_fromUtf8("password"))
 
         self.retranslateUi(Dialog)
