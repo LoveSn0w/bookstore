@@ -1,18 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Tasks SYSTEM "Tasks-5.1.dtd">
 <!-- eric6 tasks file for project bookstore -->
-<!-- Saved: 2015-10-18, 16:55:36 -->
+<!-- Saved: 2015-10-18, 18:51:29 -->
 <Tasks version="5.1">
   <ProjectScanFilter></ProjectScanFilter>
-  <Task priority="1" completed="False" type="1">
-    <Summary>TODO: not implemented yet</Summary>
-    <Description></Description>
-    <Created>2015-10-18, 11:32:26</Created>
-    <Resource>
-      <Filename>dialog.py</Filename>
-      <Linenumber>39</Linenumber>
-    </Resource>
-  </Task>
   <Task priority="1" completed="False" type="1">
     <Summary>TODO: not implemented yet</Summary>
     <Description></Description>
@@ -20,6 +11,15 @@
     <Resource>
       <Filename>mainfram.py</Filename>
       <Linenumber>35</Linenumber>
+    </Resource>
+  </Task>
+  <Task priority="1" completed="False" type="1">
+    <Summary>TODO: not implemented yet</Summary>
+    <Description></Description>
+    <Created>2015-10-18, 18:51:26</Created>
+    <Resource>
+      <Filename>dialog.py</Filename>
+      <Linenumber>48</Linenumber>
     </Resource>
   </Task>
 </Tasks>

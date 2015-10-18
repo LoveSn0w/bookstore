@@ -9,7 +9,7 @@ from PyQt4.QtGui import QDialog
 from PyQt4 import QtGui
 from Ui_dialog import Ui_Dialog
 from mainfram import mainframcontrol
-
+from Ui_reject import Ui_refuse
 class DialogControl(QDialog, Ui_Dialog):
     """
     Class documentation goes here.
@@ -27,12 +27,21 @@ class DialogControl(QDialog, Ui_Dialog):
     def on_login_clicked(self):
         print '这是登陆'
         
-        
+        if (self.username.text()=='123' and self.password.text()=='123'):
         
 
-        mainframui.show()
-        ui.close()
-        
+                mainframui.show()
+                ui.close()
+
+        else:
+                print '登录失败'
+
+
+                refuse.setupUi(refuse1)
+                refuse1.show()
+                self.username.setText("")
+                self.password.setText("")
+
         """
         Slot documentation goes here.
         """
@@ -55,4 +64,6 @@ if __name__ == "__main__":
     ui = DialogControl()
     ui.show()
     mainframui=mainframcontrol()
+    refuse=Ui_refuse()
+    refuse1 = QtGui.QDialog()
     sys.exit(app.exec_())

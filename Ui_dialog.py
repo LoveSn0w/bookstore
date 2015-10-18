@@ -46,6 +46,14 @@ class Ui_Dialog(object):
         self.password.setGeometry(QtCore.QRect(200, 170, 113, 20))
         self.password.setEchoMode(QtGui.QLineEdit.Password)
         self.password.setObjectName(_fromUtf8("password"))
+        self.verticalLayoutWidget = QtGui.QWidget(Dialog)
+        self.verticalLayoutWidget.setGeometry(QtCore.QRect(0, 0, 401, 121))
+        self.verticalLayoutWidget.setObjectName(_fromUtf8("verticalLayoutWidget"))
+        self.verticalLayout = QtGui.QVBoxLayout(self.verticalLayoutWidget)
+        self.verticalLayout.setObjectName(_fromUtf8("verticalLayout"))
+        self.label_3 = QtGui.QLabel(self.verticalLayoutWidget)
+        self.label_3.setObjectName(_fromUtf8("label_3"))
+        self.verticalLayout.addWidget(self.label_3)
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
@@ -56,6 +64,7 @@ class Ui_Dialog(object):
         self.reset.setText(_translate("Dialog", "重置", None))
         self.label.setText(_translate("Dialog", "用户名", None))
         self.label_2.setText(_translate("Dialog", "密码", None))
+        self.label_3.setText(_translate("Dialog", "                                               欢迎使用", None))
 
 
 if __name__ == "__main__":

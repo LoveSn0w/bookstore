@@ -152,13 +152,15 @@ class mainframcontrol(QMainWindow, Ui_mainfram):
         Slot documentation goes here.
         """
         # TODO: not implemented yet
-        choice= self.ordercommobox.currentIndex()
-        searchcontent=unicode(self.searchordercontent.text())
+        choice= self.buycommobox.currentIndex()
+        searchcontent=unicode(self.buysearchcontent.text())
         buySQL=SQLtool.DBmanager()
         buySQL.connectdb()
         searchcontent_temp='\''+searchcontent+'\''
         print searchcontent_temp
+        print choice
         if choice==0:
+ 
                 (result,description,count,col)=buySQL.searchtableinfo_byparams(['orders','orderbook','book','users'],['bookid','title','count(bookid) as buy_time'],['bookid','orderid','user','title','orders.state>'],['book.bid','oid','uid',searchcontent_temp,'3 group by bookid'])
                 self .drawtable(result,description,count,col,self.buydatacontent)
         else :
