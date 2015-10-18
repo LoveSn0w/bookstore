@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Project SYSTEM "Project-5.1.dtd">
 <!-- eric project file for project bookstore -->
-<!-- Saved: 2015-10-16, 20:20:52 -->
+<!-- Saved: 2015-10-18, 19:01:08 -->
 <!-- Copyright (C) 2015 sherwel, nanshihui@qq.com -->
 <Project version="5.1">
   <Language>en_US</Language>
@@ -13,16 +13,19 @@
   <Version>0.1</Version>
   <Author>sherwel</Author>
   <Email>nanshihui@qq.com</Email>
+  <Eol index="-1"/>
   <Sources>
     <Source>__init__.py</Source>
     <Source>Ui_dialog.py</Source>
     <Source>dialog.py</Source>
     <Source>Ui_mainfram.py</Source>
     <Source>mainfram.py</Source>
+    <Source>Ui_reject.py</Source>
   </Sources>
   <Forms>
     <Form>dialog.ui</Form>
     <Form>mainfram.ui</Form>
+    <Form>reject.ui</Form>
   </Forms>
   <Translations/>
   <Resources/>
