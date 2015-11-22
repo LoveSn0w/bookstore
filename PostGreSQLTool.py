@@ -87,8 +87,10 @@ class DBmanager:
                                 		sql=sql+request_params[k]+'= '+equal_params[k]+' and '
                                		sql=sql+request_params[request_params_length-1]+'= '+equal_params[request_params_length-1]+'  '
                                 print sql
-				count=self.__cur.execute(sql)
 
+                                self.__cur.execute(sql)
+                                count= self.__cur.rowcount
+                                 
                                 if count>0:
                                         result=self.__cur.fetchall()
                                         content=self.__cur.description

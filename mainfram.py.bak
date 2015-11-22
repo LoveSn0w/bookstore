@@ -53,7 +53,6 @@ class mainframcontrol(QMainWindow, Ui_mainfram):
         bookSQL=PostGreSQLTool.DBmanager()
         bookSQL.connectdb()
         (result,description,count,col)=bookSQL.searchtableinfo_byparams(['book'],[],[],[])
-        print 'result is '+str(result)
         self .drawtable(result,description,count,col,self.datacontent)
         bookSQL.closedb()
     def initordersearch(self):
@@ -121,18 +120,18 @@ class mainframcontrol(QMainWindow, Ui_mainfram):
         searchcontent_temp='\''+searchcontent+'\''
         print searchcontent_temp
         if choice==0:
-                (result,description,count,col)=orderSQL.searchtableinfo_byparams(['orders','users'],['oid','ouser','orders.state','payment','ordertime','name'],['ouser','name'],['uid',searchcontent_temp])
+                (result,description,count,col)=orderSQL.searchtableinfo_byparams(['orders','users'],['oid','user','orders.state','payment','ordertime','name'],['user','name'],['uid',searchcontent_temp])
                 self .drawtable(result,description,count,col,self.orderdatacontent)
         elif choice==1:
-                (result,description,count,col)=orderSQL.searchtableinfo_byparams(['orders','users'],['oid','ouser','orders.state','payment','ordertime','name'],['user','ouser'],['uid',searchcontent_temp])
+                (result,description,count,col)=orderSQL.searchtableinfo_byparams(['orders','users'],['oid','user','orders.state','payment','ordertime','name'],['user','user'],['uid',searchcontent_temp])
 
                 self .drawtable(result,description,count,col,self.orderdatacontent)
         elif choice==2:
-                (result,description,count,col)=orderSQL.searchtableinfo_byparams(['orders','orderbook','book','users'],['oid','ouser','orders.state','payment','ordertime','title','users.name' ,'bookid'],['bookid','orderid','ouser','title'],['book.bid','oid','uid',searchcontent_temp])
+                (result,description,count,col)=orderSQL.searchtableinfo_byparams(['orders','orderbook','book','users'],['oid','user','orders.state','payment','ordertime','title','users.name' ,'bookid'],['bookid','orderid','user','title'],['book.bid','oid','uid',searchcontent_temp])
 
                 self .drawtable(result,description,count,col,self.orderdatacontent)
         else:
-                (result,description,count,col)=orderSQL.searchtableinfo_byparams(['orders','orderbook','book','users'],['oid','ouser','orders.state','payment','ordertime','title','users.name' ,'bookid'],['bookid','orderid','ouser','bookid'],['book.bid','oid','uid',searchcontent_temp])
+                (result,description,count,col)=orderSQL.searchtableinfo_byparams(['orders','orderbook','book','users'],['oid','user','orders.state','payment','ordertime','title','users.name' ,'bookid'],['bookid','orderid','user','bookid'],['book.bid','oid','uid',searchcontent_temp])
 
                 self .drawtable(result,description,count,col,self.orderdatacontent)
         orderSQL.closedb()
@@ -162,10 +161,10 @@ class mainframcontrol(QMainWindow, Ui_mainfram):
         print choice
         if choice==0:
  
-                (result,description,count,col)=buySQL.searchtableinfo_byparams(['orders','orderbook','book','users'],['bookid','title','count(bookid) as buy_time'],['bookid','orderid','ouser','title','orders.state>'],['book.bid','oid','uid',searchcontent_temp,'3 group by bookid,title'])
+                (result,description,count,col)=buySQL.searchtableinfo_byparams(['orders','orderbook','book','users'],['bookid','title','count(bookid) as buy_time'],['bookid','orderid','user','title','orders.state>'],['book.bid','oid','uid',searchcontent_temp,'3 group by bookid'])
                 self .drawtable(result,description,count,col,self.buydatacontent)
         else :
-                (result,description,count,col)=buySQL.searchtableinfo_byparams(['orders','orderbook','book','users'],['bookid','title','count(bookid) as buy_time'],['bookid','orderid','ouser','bookid','orders.state>'],['book.bid','oid','uid',searchcontent_temp,'3 group by bookid,title'])
+                (result,description,count,col)=buySQL.searchtableinfo_byparams(['orders','orderbook','book','users'],['bookid','title','count(bookid) as buy_time'],['bookid','orderid','user','bookid','orders.state>'],['book.bid','oid','uid',searchcontent_temp,'3 group by bookid'])
 
                 self .drawtable(result,description,count,col,self.buydatacontent)
         buySQL.closedb()
