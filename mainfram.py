@@ -9,7 +9,6 @@ from PyQt4.QtGui import QMainWindow
 from PyQt4 import QtGui
 from Ui_mainfram import Ui_mainfram
 import PostGreSQLTool
-import sys 
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
@@ -42,19 +41,28 @@ class mainframcontrol(QMainWindow, Ui_mainfram):
             return 
         contentarray=[]
         for temp  in description:
-               contentarray.append(unicode(temp[0]))
+            contentarray.append(unicode(temp[0]))
         datacontent.setHorizontalHeaderLabels(contentarray)  
         for i in range(0,len(result)):
-                for j in range(0,len(result[i])):
-                        newItem = QtGui.QTableWidgetItem(unicode(result[i][j]) )
-                        datacontent.setItem(i, j, newItem)  
-#                        
+            for j in range(0,len(result[i])):
+                newItem = QtGui.QTableWidgetItem(unicode(result[i][j]) )
+                datacontent.setItem(i, j, newItem)  
+    def warfobj(self, result):
+        print '------------------------'
+        temparray=[]
+        size=0
+        for i in result:
+            temtup=str(i[0])[1:-1].split(',')
+            size=len(temtup)
+            temparray.append(temtup)
+        print '------------------------'
+        return temparray, size
     def initsearch(self):
         bookSQL=PostGreSQLTool.DBmanager()
         bookSQL.connectdb()
-        (result,description,count,col)=bookSQL.searchtableinfo_byparams(['book'],[],[],[])
-        print 'result is '+str(result)
-        self .drawtable(result,description,count,col,self.datacontent)
+        (result,description,count,col)=bookSQL.searchtableinfo_byparams(['bookinfo'],['(book).bid', '(book).title', '(book).author', '(book).press', '(book).price', '(book).category', '(book).stock'],[],[])
+#        temparray,size=self.warfobj(result)
+        self.drawtable(result,description,count,col,self.datacontent)
         bookSQL.closedb()
     def initordersearch(self):
         orderSQL=PostGreSQLTool.DBmanager()
@@ -81,17 +89,18 @@ class mainframcontrol(QMainWindow, Ui_mainfram):
         searchcontent_temp='\''+searchcontent+'\''
         print searchcontent_temp
         if choice==0:
-                (result,description,count,col)=bookSQL.searchtableinfo_byparams(['book'],[],['author'],[searchcontent_temp])
-                self .drawtable(result,description,count,col,self.datacontent)
+            (result,description,count,col)=bookSQL.searchtableinfo_byparams(['bookinfo'],['(book).bid', '(book).title', '(book).author', '(book).press', '(book).price', '(book).category', '(book).stock'],['(book).author'],[searchcontent_temp])
+#            result,col=self.warfobj(result) 
+            self .drawtable(result,description,count,col,self.datacontent)
         elif choice==1:
-                (result,description,count,col)=bookSQL.searchtableinfo_byparams(['book'],[],['title'],[searchcontent_temp])
-                self .drawtable(result,description,count,col,self.datacontent)
+            (result,description,count,col)=bookSQL.searchtableinfo_byparams(['bookinfo'],['(book).bid', '(book).title', '(book).author', '(book).press', '(book).price', '(book).category', '(book).stock'],['(book).title'],[searchcontent_temp])
+            self .drawtable(result,description,count,col,self.datacontent)
         elif choice==2:
-                (result,description,count,col)=bookSQL.searchtableinfo_byparams(['book'],[],['press'],[searchcontent_temp])
-                self .drawtable(result,description,count,col,self.datacontent)
+            (result,description,count,col)=bookSQL.searchtableinfo_byparams(['bookinfo'],['(book).bid', '(book).title', '(book).author', '(book).press', '(book).price', '(book).category', '(book).stock'],['(book).press'],[searchcontent_temp])
+            self .drawtable(result,description,count,col,self.datacontent)
         else:
-                (result,description,count,col)=bookSQL.searchtableinfo_byparams(['book'],[],['bid'],[searchcontent_temp])
-                self .drawtable(result,description,count,col,self.datacontent)
+            (result,description,count,col)=bookSQL.searchtableinfo_byparams(['bookinfo'],['(book).bid', '(book).title', '(book).author', '(book).press', '(book).price', '(book).category', '(book).stock'],['(book).bid'],[searchcontent_temp])
+            self .drawtable(result,description,count,col,self.datacontent)
         bookSQL.closedb()
 
         # TODO: not implemented yet
@@ -121,20 +130,20 @@ class mainframcontrol(QMainWindow, Ui_mainfram):
         searchcontent_temp='\''+searchcontent+'\''
         print searchcontent_temp
         if choice==0:
-                (result,description,count,col)=orderSQL.searchtableinfo_byparams(['orders','users'],['oid','ouser','orders.state','payment','ordertime','name'],['ouser','name'],['uid',searchcontent_temp])
-                self .drawtable(result,description,count,col,self.orderdatacontent)
+            (result,description,count,col)=orderSQL.searchtableinfo_byparams(['orders','users'],['oid','ouser','orders.state','payment','ordertime','name'],['ouser','name'],['uid',searchcontent_temp])
+            self .drawtable(result,description,count,col,self.orderdatacontent)
         elif choice==1:
-                (result,description,count,col)=orderSQL.searchtableinfo_byparams(['orders','users'],['oid','ouser','orders.state','payment','ordertime','name'],['user','ouser'],['uid',searchcontent_temp])
+            (result,description,count,col)=orderSQL.searchtableinfo_byparams(['orders','users'],['oid','ouser','orders.state','payment','ordertime','name'],['user','ouser'],['uid',searchcontent_temp])
 
-                self .drawtable(result,description,count,col,self.orderdatacontent)
+            self .drawtable(result,description,count,col,self.orderdatacontent)
         elif choice==2:
-                (result,description,count,col)=orderSQL.searchtableinfo_byparams(['orders','orderbook','book','users'],['oid','ouser','orders.state','payment','ordertime','title','users.name' ,'bookid'],['bookid','orderid','ouser','title'],['book.bid','oid','uid',searchcontent_temp])
+            (result,description,count,col)=orderSQL.searchtableinfo_byparams(['orders','orderbook','book','users'],['oid','ouser','orders.state','payment','ordertime','title','users.name' ,'bookid'],['bookid','orderid','ouser','title'],['book.bid','oid','uid',searchcontent_temp])
 
-                self .drawtable(result,description,count,col,self.orderdatacontent)
+            self .drawtable(result,description,count,col,self.orderdatacontent)
         else:
-                (result,description,count,col)=orderSQL.searchtableinfo_byparams(['orders','orderbook','book','users'],['oid','ouser','orders.state','payment','ordertime','title','users.name' ,'bookid'],['bookid','orderid','ouser','bookid'],['book.bid','oid','uid',searchcontent_temp])
+            (result,description,count,col)=orderSQL.searchtableinfo_byparams(['orders','orderbook','book','users'],['oid','ouser','orders.state','payment','ordertime','title','users.name' ,'bookid'],['bookid','orderid','ouser','bookid'],['book.bid','oid','uid',searchcontent_temp])
 
-                self .drawtable(result,description,count,col,self.orderdatacontent)
+            self .drawtable(result,description,count,col,self.orderdatacontent)
         orderSQL.closedb()
     
     @pyqtSignature("")
@@ -162,12 +171,12 @@ class mainframcontrol(QMainWindow, Ui_mainfram):
         print choice
         if choice==0:
  
-                (result,description,count,col)=buySQL.searchtableinfo_byparams(['orders','orderbook','book','users'],['bookid','title','count(bookid) as buy_time'],['bookid','orderid','ouser','title','orders.state>'],['book.bid','oid','uid',searchcontent_temp,'3 group by bookid,title'])
-                self .drawtable(result,description,count,col,self.buydatacontent)
+            (result,description,count,col)=buySQL.searchtableinfo_byparams(['orders','orderbook','book','users'],['bookid','title','count(bookid) as buy_time'],['bookid','orderid','ouser','title','orders.state>'],['book.bid','oid','uid',searchcontent_temp,'3 group by bookid,title'])
+            self .drawtable(result,description,count,col,self.buydatacontent)
         else :
-                (result,description,count,col)=buySQL.searchtableinfo_byparams(['orders','orderbook','book','users'],['bookid','title','count(bookid) as buy_time'],['bookid','orderid','ouser','bookid','orders.state>'],['book.bid','oid','uid',searchcontent_temp,'3 group by bookid,title'])
+            (result,description,count,col)=buySQL.searchtableinfo_byparams(['orders','orderbook','book','users'],['bookid','title','count(bookid) as buy_time'],['bookid','orderid','ouser','bookid','orders.state>'],['book.bid','oid','uid',searchcontent_temp,'3 group by bookid,title'])
 
-                self .drawtable(result,description,count,col,self.buydatacontent)
+            self .drawtable(result,description,count,col,self.buydatacontent)
         buySQL.closedb()
     
     @pyqtSignature("")

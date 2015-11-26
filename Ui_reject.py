@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/home/dell/github/bookstore/reject.ui'
+# Form implementation generated from reading ui file 'C:\Users\shihui\ericproject\bookstore\reject.ui'
 #
 # Created by: PyQt4 UI code generator 4.11.4
 #

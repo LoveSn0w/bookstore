@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Project SYSTEM "Project-5.1.dtd">
 <!-- eric project file for project bookstore -->
-<!-- Saved: 2015-10-18, 19:01:08 -->
+<!-- Saved: 2015-11-26, 16:32:37 -->
 <!-- Copyright (C) 2015 sherwel, nanshihui@qq.com -->
 <Project version="5.1">
   <Language>en_US</Language>
@@ -21,6 +21,8 @@
     <Source>Ui_mainfram.py</Source>
     <Source>mainfram.py</Source>
     <Source>Ui_reject.py</Source>
+    <Source>config.py</Source>
+    <Source>PostGreSQLTool.py</Source>
   </Sources>
   <Forms>
     <Form>dialog.ui</Form>

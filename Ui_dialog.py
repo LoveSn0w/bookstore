@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '/home/dell/github/bookstore/dialog.ui'
+# Form implementation generated from reading ui file 'C:\Users\shihui\ericproject\bookstore\dialog.ui'
 #
 # Created by: PyQt4 UI code generator 4.11.4
 #
@@ -64,7 +64,7 @@ class Ui_Dialog(object):
         self.reset.setText(_translate("Dialog", "重置", None))
         self.label.setText(_translate("Dialog", "用户名", None))
         self.label_2.setText(_translate("Dialog", "密码", None))
-        self.label_3.setText(_translate("Dialog", "                                               欢迎使用", None))
+        self.label_3.setText(_translate("Dialog", "                              欢迎使用", None))
 
 
 if __name__ == "__main__":

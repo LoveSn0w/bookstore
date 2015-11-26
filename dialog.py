@@ -30,17 +30,17 @@ class DialogControl(QDialog, Ui_Dialog):
         if (self.username.text()=='123' and self.password.text()=='123'):
         
 
-                mainframui.show()
-                ui.close()
+            mainframui.show()
+            ui.close()
 
         else:
-                print '登录失败'
+            print '登录失败'
 
 
-                refuse.setupUi(refuse1)
-                refuse1.show()
-                self.username.setText("")
-                self.password.setText("")
+            refuse.setupUi(refuse1)
+            refuse1.show()
+            self.username.setText("")
+            self.password.setText("")
 
         """
         Slot documentation goes here.
